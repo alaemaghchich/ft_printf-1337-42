@@ -12,25 +12,32 @@
 
 #include "ft_printf.h"
 
-size_t ft_printhex(char format, ui n)
+size_t ft_puthexa(unsigned int nbr, char format)
 {
-    size_t	count;
     char *hex;
+    char buf[8];
+    int i = 0;
+    size_t count;
 
-    hex = NULL;
+    if (nbr == 0)
+        return(write(1, "0", 1));
     if (format == 'x')
-    {
         hex = "0123456789abcdef";
-    }
-    else if (format == 'X')
+    else if(format == 'X')
     {
         hex = "0123456789ABCDEF";
     }
-	count = 0;
-	if (n >= 16)
-		count += ft_printhex(format, n / 16);
-	count += ft_putchar(hex[n % 16]);
-	return (count);   
+    while (nbr)
+    {
+        buf[i++] = hex[nbr % 16];
+        nbr /= 16;
+    }
+    count = 0;
+    while (i)
+    {
+        count += write(1, &buf[--i], 1);
+    }
+    return (count);
 }
 // int main()
 // {
