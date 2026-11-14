@@ -6,16 +6,16 @@
 /*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 12:14:26 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/13 09:10:36 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/14 06:17:53 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_put_u_nbr(ui n)
+t_ui	ft_put_u_nbr(t_ui n)
 {
-	size_t	count;
-	ui rev;
+	t_ui	count;
+	t_ui rev;
 
 	count = 0;
 	rev = ft_rev_nbr(n);
