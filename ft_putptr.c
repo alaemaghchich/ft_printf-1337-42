@@ -6,7 +6,7 @@
 /*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:46:56 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/13 12:03:07 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/14 05:56:21 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ size_t ft_putptr(void *ptr)
         return (ft_putstr("(nil)"));
     address = (unsigned long)ptr;
     count = ft_putstr("0x");
-    count += ft_printhex('x', address);
+    count += ft_puthex('x', address);
     return (count);
 }
