@@ -1,32 +1,39 @@
 NAME = libftprintf.a
 
 SRCS = ft_printf.c\
-	   ft_printhex.c\
+	   ft_puthex.c\
 	   ft_putchar.c\
 	   ft_putnbr.c\
 	   ft_putstr.c\
-	   ft_putUnbr.c
+	   ft_putUnbr.c\
+	   ft_putptr.c
+
 
 OBJS = $(SRCS:.c=.o)
 
 AR = ar rcs
 
-all: $(NAME)
+all: $(NAME) clean
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 %.o: %.c ft_printf.h
-	@cc -Wall -Wextra -Werror -c $< -o $@
+	cc -Wall -Wextra -Werror -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
-	@clear
+	rm -f $(OBJS)
+	clear
 
 fclean: clean
 	@rm -f $(NAME)
-	@clear
 
 re: fclean all
+	clear
+
+run:
+	cc ft_printf.c $(NAME)
+	clear
+	./a.out
 
 .PHONY: all clean fclean re
