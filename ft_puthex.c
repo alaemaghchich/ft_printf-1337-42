@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printhex.c                                      :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:31:34 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/14 05:55:27 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/14 06:16:58 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_printhex(char format, ui n)
+t_ui	ft_puthex(char format, t_ui n)
 {
 	char	buf[8];
 	char	*hex;
-	ui	i;
-	size_t count;
+	t_ui	i;
+	t_ui count;
 	
 	if (n == 0)
 		return (ft_putchar('0'));
@@ -39,3 +39,10 @@ size_t	ft_printhex(char format, ui n)
 	return (count);
 }
 
+int main()
+{
+	printf("%d" ,ft_puthex('x' ,1337));
+	printf("\n");
+	printf("%d",printf("%x", 1337));
+	
+}
