@@ -6,17 +6,17 @@
 /*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 21:12:13 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/13 09:23:47 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/14 06:17:10 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t ft_putnumber(int n)
+t_ui ft_putnumber(int n)
 {
     long rev;
     long nb;
-    size_t count;
+    t_ui count;
 
     count = 0;
     nb = n;
