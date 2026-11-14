@@ -6,13 +6,13 @@
 /*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:18:30 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/13 09:28:58 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/14 06:11:27 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int main ()
+int ft_printf(const char *, ...)
 {
-    printf("%p\n", 0);
+    ;
 }
