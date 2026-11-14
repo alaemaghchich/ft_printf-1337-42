@@ -6,16 +6,16 @@
 /*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:46:56 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/14 05:56:21 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/14 06:17:17 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t ft_putptr(void *ptr)
+t_ui ft_putptr(void *ptr)
 {
     unsigned long   address;
-    int             count;
+    t_ui             count;
 
     if (ptr == NULL)
         return (ft_putstr("(nil)"));
