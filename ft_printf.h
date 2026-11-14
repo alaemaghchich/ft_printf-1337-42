@@ -6,25 +6,27 @@
 /*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:24:19 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/13 09:26:48 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/14 06:11:43 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include <stdio.h>
+#define FT_PRINTF_H
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdio.h>
 
-typedef unsigned int ui;
+typedef unsigned int t_ui;
 
+int ft_printf(const char *, ...);
 long ft_rev_nbr(long n);
-size_t ft_put_u_nbr(ui n);
-size_t ft_putstr(char *str);
-size_t ft_putnumber(int n);
-size_t ft_putchar(char c);
-size_t ft_printhex(char format, ui n);
+t_ui ft_put_u_nbr(t_ui n);
+t_ui ft_putstr(char *str);
+t_ui ft_putnumber(int n);
+t_ui ft_putchar(char c);
+t_ui ft_puthex(char format, t_ui n);
+t_ui ft_putptr(void *ptr);
 
 #endif
