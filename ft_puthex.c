@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amaghchi <amaghchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:31:34 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/14 06:16:58 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/17 07:22:47 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,4 @@ t_ui	ft_puthex(char format, t_ui n)
 	while (i)
 		count += ft_putchar(buf[--i]);
 	return (count);
-}
-
-int main()
-{
-	printf("%d" ,ft_puthex('x' ,1337));
-	printf("\n");
-	printf("%d",printf("%x", 1337));
-	
 }
