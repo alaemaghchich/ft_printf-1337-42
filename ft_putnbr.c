@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amaghchi <amaghchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 21:12:13 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/14 06:17:10 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/17 07:13:35 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_ui ft_putnumber(int n)
+t_ui ft_putnbr(int n , int *i)
 {
     long rev;
     long nb;
@@ -33,5 +33,6 @@ t_ui ft_putnumber(int n)
         count += ft_putchar((rev % 10) + 48);
         rev /= 10;
     }
+    (*i)++;
     return (count);
 }
