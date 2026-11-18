@@ -6,13 +6,13 @@
 /*   By: amaghchi <amaghchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 21:12:13 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/17 07:13:35 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/18 11:48:58 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_ui ft_putnbr(int n , int *i)
+t_ui ft_putnbr(int n)
 {
     long rev;
     long nb;
@@ -33,6 +33,5 @@ t_ui ft_putnbr(int n , int *i)
         count += ft_putchar((rev % 10) + 48);
         rev /= 10;
     }
-    (*i)++;
     return (count);
 }

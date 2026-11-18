@@ -6,6 +6,7 @@ SRCS = ft_printf.c\
 	   ft_putnbr.c\
 	   ft_putstr.c\
 	   ft_putUnbr.c\
+	   ft_rev_nbr.c\
 	   ft_putptr.c
 
 
