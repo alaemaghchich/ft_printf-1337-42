@@ -6,6 +6,7 @@
 	<img width="150" height="150" alt="image" src="https://github.com/user-attachments/assets/c5581538-e0a6-4fbd-8813-e55a9291f37b" />
   </a>
 </p>
+
 ## Description
 
 `ft_printf` is a recreation of the C standard library function `printf`. The goal of this project is to understand how formatted output works, how variable arguments are read, and how to print different types of data without using `printf`.
