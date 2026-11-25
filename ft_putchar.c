@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghchi <amaghchi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 12:39:58 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/18 11:48:15 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/24 18:36:19 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_ui ft_putchar(int c)
+int	ft_putchar(int c)
 {
-    write(1, &c, 1);
-    return (1);
+	return (write(1, &c, 1));
 }

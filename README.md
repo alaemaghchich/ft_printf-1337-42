@@ -17,7 +17,7 @@ The project creates a static library named `libftprintf.a`. It supports the foll
 - `%X`: hexadecimal number in uppercase
 - `%%`: percent sign
 
-The function writes the result to the standard output and returns the number of printed characters. It returns `-1` when an unsupported conversion is found.
+The function writes the result to the standard output and returns the number of printed characters. It returns `-1` if the format string is `NULL`, ends with a standalone `%`, or an output operation fails.
 
 ## Instructions
 
@@ -73,22 +73,40 @@ cc main.c libftprintf.a -o test
 
 ## Algorithm and Data Structures
 
-The function reads the format string from left to right.
+`ft_printf` reads the format string from left to right:
 
-1. If the current character is not `%`, it is printed with `ft_putchar`.
-2. If the current character is `%`, the next character is checked.
-3. `do_it` chooses the correct conversion function.
-4. `va_arg` reads the matching value from the variable arguments list.
-5. The conversion function prints the value and adds the number of printed characters to the total.
-6. The function returns the final character count.
+1. Ordinary characters are printed directly with `ft_putchar`.
+2. When `%` is followed by a supported conversion character, `do_it` selects the matching conversion function.
+3. `va_arg` retrieves the next argument as the required C type.
+4. The conversion function returns the number of characters it wrote, or `-1` if allocation or output fails.
 
-Variable arguments are handled with `va_list`, `va_start`, `va_arg`, and `va_end`. `va_list` keeps the position of the next argument. `va_start` prepares it, and `va_end` closes it after processing.
+5. Every successful character count is added to the total.
+6. The function closes the variable argument list and returns the final character count.
 
-Fixed-size character buffers are used for hexadecimal and pointer conversions. Digits are first stored in the buffer in reverse order. They are then read backward and printed. This is useful because repeated division by 16 produces digits from right to left. The buffers are small because an unsigned 32-bit hexadecimal value needs at most eight digits, and a pointer address needs at most 16 hexadecimal digits on a 64-bit system.
+If the format string is `NULL`, `ft_printf` returns `-1`. A trailing `%` is also invalid and returns `-1`.
 
-Decimal numbers use division and remainder operations. `ft_rev_nbr` builds an opposite-order number, and `ft_putnbr` prints each remainder as a character. Negative integers are handled by printing `-` and changing the number to a positive `long`, which avoids overflow when reversing the minimum integer value.
+Variable arguments are managed with `va_list`, `va_start`, `va_arg`, and `va_end`. `va_list` keeps track of the next argument while `va_start` initializes it and `va_end` closes it.
 
-The main data structure is `va_list`. No complex external data structure is needed because `ft_printf` processes the format string one character at a time. Fixed-size buffers are enough for the supported number conversions.
+### Decimal numbers
+
+`ft_nblen` calculates the number of characters needed for a signed or unsigned decimal value. `ft_putnbr` converts an `int` by:
+
+1. Handling `0` directly.
+2. Copying the value into a `long` to support `INT_MIN` safely.
+3. Allocating a buffer of the required size.
+4. Storing `'-'` before the digits for negative values.
+5. Extracting digits from right to left with division and remainder by 10.
+6. Writing the completed buffer with `ft_putstr`.
+
+The buffer is allocated dynamically and is freed after a successful string write. `ft_put_u_nbr` follows the same digit-buffer algorithm for `unsigned int` values, without a sign character.
+
+### Hexadecimal and pointer numbers
+
+Hexadecimal output uses repeated division by 16. `ft_puthex` stores the remainder characters in a fixed 8-character buffer, using lowercase or uppercase digits, then reads the buffer backward. This buffer is large enough for one `unsigned int` value.
+
+`ft_putptr` converts the address to `unsigned long`, prints the `0x` prefix, and stores up to 16 hexadecimal digits in a fixed-size buffer. The digits are then printed in reverse storage order. A `NULL` pointer is printed as `(nil)`.
+
+The main data structure is `va_list`. No complex collection is needed because the format string is processed one character at a time. The number conversions use either dynamically sized decimal buffers or fixed-size hexadecimal buffers.
 
 ## Features
 
@@ -108,4 +126,4 @@ The main data structure is `va_list`. No complex external data structure is need
 
 ### AI usage
 
-AI was used to help write and organize this README so that the project goal, build instructions, supported conversions, algorithm, and resources are easy to understand. AI was not used to implement the conversion functions or change the source code.
+AI was used to help organize this and to understanding some new concept in thee project README so that the project goal, build instructions, supported conversions, algorithm, and resources are easy to understand. AI was not used to implement the conversion functions or change the source code.

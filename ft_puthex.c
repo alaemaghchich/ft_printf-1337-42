@@ -3,38 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghchi <amaghchi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:31:34 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/18 13:11:06 by amaghchi         ###   ########.fr       */
+/*   Updated: 2026/11/25 10:58:59 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_ui	ft_puthex(char format, t_ui n)
+int	ft_puthex(char format, t_ui n)
 {
 	char	buf[8];
 	char	*hex;
 	t_ui	i;
-	t_ui count;
-	
+	int		count;
+	int		written;
+
 	if (n == 0)
 		return (ft_putchar('0'));
 	if (format == 'x')
 		hex = "0123456789abcdef";
 	else if (format == 'X')
-	{
 		hex = "0123456789ABCDEF";
-	}
 	i = 0;
 	while (n)
-	{
-		buf[i++] = hex[n % 16];
-		n /= 16;
-	}
+		(1) && (buf[i++] = hex[n % 16], n /= 16);
 	count = 0;
 	while (i)
-		count += ft_putchar(buf[--i]);
+	{
+		written = ft_putchar(buf[--i]);
+		if (written == -1)
+			return (-1);
+		count += written;
+	}
 	return (count);
 }

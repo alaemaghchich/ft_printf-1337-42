@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_nbr.c                                       :+:      :+:    :+:   */
+/*   ft_nblen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amaghchi <amaghchi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/12 22:37:33 by amaghchi          #+#    #+#             */
-/*   Updated: 2026/11/13 20:57:46 by amaghchi         ###   ########.fr       */
+/*   Created: 2026/11/19 10:51:52 by amaghchi          #+#    #+#             */
+/*   Updated: 2026/11/23 10:08:46 by amaghchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long ft_rev_nbr(long n)
+t_ui	ft_nblen(long nb)
 {
-    long nb;
+	t_ui	count;
 
-    nb = 0;
-    while (n != 0)
-    {
-        nb = nb * 10 + (n % 10);
-        n /= 10;
-    }
-    return (nb);
+	if (nb > 0)
+		count = 0;
+	else
+		count = 1;
+	while (nb)
+	{
+		count++;
+		nb /= 10;
+	}
+	return (count);
 }
