@@ -1,7 +1,7 @@
 *This project has been created as part of the 42 curriculum by amaghchi.*
 
 # ft_printf
-p align="center">
+<p align="center">
   <a href="https://github.com/alaemaghchich/ft_printf-1337-42" target="_blank">
 	<img width="150" height="150" alt="image" src="https://github.com/user-attachments/assets/c5581538-e0a6-4fbd-8813-e55a9291f37b" />
   </a>
